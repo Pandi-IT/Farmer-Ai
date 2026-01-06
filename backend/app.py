@@ -48,9 +48,18 @@ else:
     print("OpenAI not available or API key not configured")
 
 # --- AUTHENTICATION & DATABASE SETUP ---
-from extensions import db, bcrypt
-from models import User
-from auth import create_access_token, create_refresh_token, token_required
+try:
+    from extensions import db, bcrypt
+    from models import User
+    from auth import create_access_token, create_refresh_token, token_required
+except ImportError:
+    # If relative imports fail, try absolute imports
+    import sys
+    import os
+    sys.path.insert(0, os.path.dirname(__file__))
+    from extensions import db, bcrypt
+    from models import User
+    from auth import create_access_token, create_refresh_token, token_required
 from sqlalchemy.exc import IntegrityError
 import datetime
 
