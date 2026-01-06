@@ -2,7 +2,7 @@ services:
   # Backend Service
   - type: web
     name: farmer-backend
-    runtime: python3
+    runtime: python
     buildCommand: pip install -r backend/requirements.txt
     startCommand: gunicorn backend.app:app --bind 0.0.0.0:$PORT
     envVars:
