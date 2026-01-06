@@ -15,7 +15,7 @@ services:
   - type: web
     name: farmer-frontend
     runtime: static
-    buildCommand: cd react-frontend && npm run build
+    buildCommand: cd react-frontend && npm install && npm run build
     staticPublishPath: react-frontend/dist
     envVars:
       - key: NODE_ENV
