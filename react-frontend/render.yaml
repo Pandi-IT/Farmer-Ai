@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: farmer-frontend
+    runtime: static
+    buildCommand: npm run build
+    staticPublishPath: dist
+    envVars:
+      - key: NODE_ENV
+        value: production
